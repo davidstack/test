@@ -40,4 +40,25 @@ class lbuser_class extends AWS_MODEL
 		}
 		return $major_teachers_page;
 	}	
+	
+	/**
+	 * lb user 增加新用户
+	 * @param unknown_type $user_name
+	 * @param unknown_type $password
+	 * @param unknown_type $email
+	 */
+	public function lbuser_register($update_data, $uid)
+	{
+             echo $update_data['user_type'];
+			$this->insert('lbuser_detail', array(
+					'id' => $uid,
+					'type' => $update_data['user_type'],
+					'major_id' => $update_data['major_id'],
+					'school_id' => $update_data['school_id'],
+					'score' => $update_data['score'],
+					'resource_url' => $update_data['resource_url'],
+					'exame_date' => $update_data['exam_date']
+			));
+	
+	}
 }
