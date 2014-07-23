@@ -1,0 +1,130 @@
+<!-- 显示一个专业的具体信息 -->
+<?php TPL::output('global/header.tpl.htm'); ?>
+
+<div class="aw-container-wrap">
+	<div class="aw-container aw-wecenter">
+	<!--	<div class="aw-global-tips">
+			<?php if ($this->redirect_message) { ?>
+				<div class="alert alert-warning fade in">
+				<?php foreach ($this->redirect_message AS $key => $message) { ?>
+					<?php echo $message; ?>
+				<?php } ?>
+				</div>
+			<?php } ?>
+		</div>
+		-->
+		<div class="container">
+			<div class="row aw-content-wrap">
+				<div class="col-sm-12 col-md-9 aw-main-content aw-topic-detail-content">
+					<div class="aw-mod aw-topic-detail-title">
+						<div class="aw-mod-body">
+							<img src="<?php echo get_major_pic_url('mid', '123'); ?>"/>
+							<h2 class="pull-left"><?php echo $this->major_detail_page['major_name'];?></h2>
+							<p class="aw-topic-detail-title-follow aw-text-color-999">
+								<?php _e('%s 人关注该专业', $this->major_detail_page['focus_count']); ?><br />
+							</p>
+
+							</p>
+						</div>
+					</div>
+
+					<div class="aw-mod aw-topic-list-mod">
+						<div class="aw-mod-head">
+							<div class="tabbable">
+								<!-- tab 切换 -->
+								<ul class="nav nav-tabs aw-reset-nav-tabs aw-topic-detail-tabs hidden-xs">  
+								    <li ><a href="#about" id="i_about" data-toggle="tab"><?php _e('专业基本信息'); ?></a></li>
+									<li class="active"><a href="#teachers" data-toggle="tab"><?php _e('老师'); ?></a></li>
+									<!-- <li><a href="#best_answers" data-toggle="tab"><?php _e('老师'); ?></a></li>-->
+									<li><a href="#articles" data-toggle="tab"><?php _e('文章'); ?></a></li>
+									<div class="aw-search-bar pull-right hidden-xs">
+										<div class="aw-topic-search aw-question-drodpwon">
+											<i class="fa fa-search pull-left"></i>
+											<input type="text" id="question-input" class="search-query" placeholder="搜索...">
+											<div class="aw-dropdown">
+												<i class="aw-icon i-dropdown-triangle active"></i>
+												<p class="title"><?php _e('没有找到相关结果'); ?></p>
+												<ul class="aw-dropdown-list">
+												</ul>
+											</div>
+										</div>
+									</div>
+								</ul>
+								<!-- end tab 切换 -->
+							</div>
+						</div>
+						<div class="aw-mod-body">
+							<!-- tab 切换内容 -->
+							<div class="tab-content">
+								<div class="tab-pane active" id="teachers">
+									<div class="aw-mod aw-question-box-mod">
+										<div class="aw-mod-body">
+											<div class="aw-question-list" id="c_teacher_list">
+												<?php echo $this->all_teachers_list_bit; ?>
+											</div>
+											
+											<a class="aw-load-more-content" id="bp_teacher_more" auto-load="false">
+												<span><?php _e('更多'); ?>...</span>
+											</a>
+										</div>
+									</div>
+								</div>
+								
+								<div class="tab-pane" id="articles">
+									<!-- 动态首页&话题精华模块 -->
+									<div class="aw-mod aw-dynamic-topic" id="c_article_list">
+										<?php echo $this->all_articles_list_bit; ?>
+									</div>
+									<!-- end 动态首页&话题精华模块 -->
+									
+									<!-- 加载更多内容 -->
+									<a class="aw-load-more-content" id="bp_article_more" auto-load="false">
+										<span><?php _e('更多'); ?>...</span>
+									</a>
+									<!-- end 加载更多内容 -->
+								</div>
+								
+								<div class="tab-pane" id="articles">
+									<!-- 动态首页&话题精华模块 -->
+									<div class="aw-mod aw-dynamic-topic" >
+										<div class="aw-mod aw-question-box-mod">
+											<div class="aw-mod-body">
+												<div class="aw-question-list" id="c_articles_list">
+													<?php echo $this->articles_list_bit; ?>
+												</div>
+											</div>
+										</div>
+									</div>
+									<!-- end 动态首页&话题精华模块 -->
+									
+									<!-- 加载更多内容 -->
+									<a class="aw-load-more-content" id="bp_articles_more" auto-load="false">
+										<span><?php _e('更多'); ?>...</span>
+									</a>
+									<!-- end 加载更多内容 -->
+								</div>
+								
+								<div class="tab-pane" id="about">
+									<div class="aw-topic-detail-about aw-text-color-666"><?php echo $this->major_detail_page['desc']; ?> </div>
+								</div>
+							</div>
+							<!-- end tab 切换内容 -->
+						</div>
+					</div>
+				</div>
+				<!-- 侧边栏 -->
+				
+			
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<script type="text/javascript">
+	var CONTENTS_MAJOR_ID = '<?php echo $this->major_detail_page['major_id']; ?>';
+</script>
+
+<script type="text/javascript" src="<?php echo G_STATIC_URL; ?>/js/app/major.js"></script>
+
+<?php TPL::output('global/footer.tpl.htm'); ?>

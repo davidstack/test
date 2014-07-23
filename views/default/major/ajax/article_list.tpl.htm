@@ -1,0 +1,31 @@
+<?php if ($this->articles_list) { ?>
+<?php foreach($this->articles_list as $key => $val) { ?>
+
+<div calss="aw-item">
+	<!-- <div class="aw-question-content">
+		<h4>
+			<a href="article/<?php echo $val['url_token']; ?>"><?php echo $val['title']; ?></a>
+			<span class="pull-right">
+					 <?php _e('专业课成绩 %s', $val['views']); ?> • <?php echo date_friendly($val['add_time']); ?>
+			</span>
+		</h4>
+	 <p>
+				
+		  </p>
+	</div> -->
+	<div class="aw-item article">
+	<div class="aw-question-content">
+		<h4>	
+			<a href="article/<?php echo $val['url_token']; ?>"><?php echo $val['title']; ?></a>
+			<p>
+				<span class="pull-right">
+					 <?php _e('%s 次浏览', $val['views']); ?> • <?php echo date_friendly($val['add_time']); ?>
+				</span>
+		  </p>
+		</h4>
+		   
+	</div>
+</div>
+</div>
+<?php } ?>
+<?php } ?>

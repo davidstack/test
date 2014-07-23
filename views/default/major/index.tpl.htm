@@ -1,0 +1,47 @@
+<?php TPL::output('global/header.tpl.htm'); ?>
+
+<div class="aw-container-wrap">
+	<div class="aw-container aw-wecenter">
+		<div class="container">
+			<div class="row aw-content-wrap aw-topic-content-wrap">
+				<div class="col-sm-12 col-md-9 aw-main-content aw-topic-content">
+					
+					<div class="aw-mod aw-topic-list">
+						<div class="aw-mod-head">
+							<?php if ($_GET['id'] == 'hot') { ?>
+							<h2><?php _e('热门专业'); ?></h2>
+							<?php } else if ($_GET['id'] == 'feature') { ?>
+							<h2><?php _e('专业分类'); ?></h2>
+							<?php } else { ?>
+							<h2><?php _e('我关注的专业'); ?></h2>
+							<?php } ?>
+						</div>
+						<div class="aw-mod-body">
+							<?php if ($this->majors_list) { ?>
+							<?php foreach ($this->majors_list AS $key => $val) { ?>
+							<div class="aw-item">
+								<div class="aw-topic-img aw-border-radius-5">
+									<img src="<?php echo get_major_pic_url('mid', $val['topic_pic']); ?>" alt="" />
+								</div>
+								<div class="pull-right aw-topic-options">
+									<span><?php _e('%s 个问题', $val['discuss_count']); ?></span>
+									<span><?php _e('%s 个关注', $val['focus_count']); ?></span>
+								</div>	
+								<a class="aw-topic-name" href="major/list/<?php echo $val['url_token']; ?>" data-id="<?php echo $val['id']; ?>"><span><?php echo $val['major_name']; ?></span></a>		
+							  <div><?php _e('%s', $val['school_name']); ?></div>
+							</div>
+							<?php } ?>
+							<?php } ?>
+							
+							
+							
+						</div>
+						
+						 
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<?php TPL::output('global/footer.tpl.htm'); ?>

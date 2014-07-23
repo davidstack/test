@@ -1,0 +1,35 @@
+<?php if ($this->teachers_list) { ?>
+<?php foreach($this->teachers_list as $key => $val) { ?>
+<br />
+<div calss="aw-item">
+	<!--<?php if ($val['anonymous'] == 0) { ?>
+		<a class="aw-user-name hidden-xs" data-id="<?php echo $val['uid']; ?>" href="people/<?php echo $val['url_token']; ?>" rel="nofollow"><img src="<?php echo get_avatar_url($val['user_info']['uid'], 'max'); ?>" alt="" /></a><?php } else { ?><a class="aw-user-name hidden-xs" href="javascript:;"><img src="<?php echo G_STATIC_URL; ?>/common/avatar-max-img.png" alt="<?php _e('匿名用户'); ?>" title="<?php _e('匿名用户'); ?>" /></a><?php } ?>
+	-->
+	<!-- <div class="aw-question-content">
+		<h4>
+			<a href="people/<?php echo $val['url_token']; ?>"><?php echo $val['name']; ?></a>
+			<span class="pull-right">
+					 <?php _e('专业课成绩 %s', $val['score']); ?> • <?php echo date_friendly($val['add_time']); ?>
+				</span>
+		</h4>
+	 <p>
+				
+		  </p>
+	</div> -->
+
+<div class="aw-item article">
+	<div class="aw-question-content">
+		<h4>	
+			<a href="people/<?php echo $val['url_token']; ?>"><?php echo $val['name']; ?></a>
+			<p>
+				<span class="pull-right">
+					 <?php _e('专业课成绩  %s', $val['score']); ?> • <?php echo date_friendly($val['add_time']); ?>
+				</span>
+		  </p>
+		</h4>
+		   
+	</div>
+	</div>
+	</div>
+<?php } ?>
+<?php } ?>
